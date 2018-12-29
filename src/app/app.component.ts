@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'RecipeShoppingApp';
+  selectedFeature: string = 'recipe';
+  public selectFeature(event){
+    this.selectedFeature = event;
+  }
 }

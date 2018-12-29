@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-12">
+    <img class="img-fluid" style="max-height: 250px" [src]="rec.imagePath" alt="Image">
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h1>{{rec.name}}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="btn-group" appDropdown>
+      <button class="btn btn-primary dropdown-toggle" type="button" (click)="openDropdown()">
+        Manage Recipe
+      </button>
+      <ul class="dropdown-menu" [ngClass]="{'show': opened}"> 
+        <li><a href="#" (click)="addRecipeIngrToSL()">To Shopping List</a></li>
+        <li><a href="#">Edit Recipe</a></li>
+        <li><a href="#">Delete Recipe</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    {{rec.description}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    Ingredients
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let ingredient of rec.ingredients">{{ingredient.name}}({{ingredient.amount}})</li>
+    </ul>
+  </div>
+</div>

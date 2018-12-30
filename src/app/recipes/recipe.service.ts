@@ -6,16 +6,20 @@ import { ShoppingListService } from '../shopping-list/shopping-list.service';
 @Injectable()
 export class RecipeService{
     private recipes: Recipe[] = [
-        new Recipe('recipe1', 
+        new Recipe(
+        1, 
+        'Delicious Hamburger', 
         'this is a short description of recipe1', 
-        'https://jimmiehalemission.com/wp-content/uploads/recipe-575434_640-1.png',
+        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLu1v2DfYYpuYHk3qSMi7rbAt9l9rJ1LAOCDl99pJ5n390tHeV',
         [
             new Ingredient('Tomatoes', 2),
             new Ingredient('Eggs', 3)
         ]),
-        new Recipe('recipe2', 
+        new Recipe(
+        2,
+        'The Best Lasagna', 
         'this is a short description of recipe2', 
-        'https://jimmiehalemission.com/wp-content/uploads/recipe-575434_640-1.png',
+        'https://www.jessicagavin.com/wp-content/uploads/2014/02/meat-lasagna-recipe-1200.jpg',
         [
             new Ingredient('Apples', 1),
             new Ingredient('Ice', 2)
@@ -27,6 +31,10 @@ export class RecipeService{
 
     public getRecipes(){
         return this.recipes;
+    }
+
+    public getRecipe(id: number): Recipe{
+        return this.recipes.find(r=>r.id==id);
     }
 
     public addRecipeIngrToSL(ingredients: Ingredient[]){

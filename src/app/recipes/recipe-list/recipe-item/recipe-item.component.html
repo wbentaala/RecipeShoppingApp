@@ -1,9 +1,9 @@
-<a href="#" class="list-group-item clearfix" (click)="onSelectRecipe()">
+<a style="cursor: pointer;" style="max-height: 100px;" class="list-group-item clearfix" [routerLink]="[recipe.id]" routerLinkActive="active">
   <div class="float-left">
     <h4 class="list-group-item-heading">{{recipe.name}}</h4>
     <p class="list-group-item-text">{{recipe.description}}</p>
   </div>
   <span class="float-right">
-    <img [src]="recipe.imagePath" alt="" class="img-fluid" style="max-height: 60px;">
+    <img [src]="recipe.imagePath" alt="" class="img-fluid" style="max-height: 40px;">
   </span>
 </a>

@@ -14,6 +14,8 @@ import { HighlightDirectiveDirective } from './directives/highlight-directive.di
 import { DropdownDirective } from './directives/dropdown.directive';
 import { RecipeService } from './recipes/recipe.service';
 import { ShoppingListService } from './shopping-list/shopping-list.service';
+import { RecipeNoDetailComponent } from './recipes/recipe-no-detail/recipe-no-detail.component';
+import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,7 @@ import { ShoppingListService } from './shopping-list/shopping-list.service';
     ShoppingListComponent, 
     ShoppingEditComponent, 
     HighlightDirectiveDirective, 
-    DropdownDirective  
+    DropdownDirective, RecipeNoDetailComponent, RecipeEditComponent  
   ],
   imports: [
     BrowserModule,

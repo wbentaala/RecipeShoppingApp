@@ -12,6 +12,7 @@ export class RecipeEditComponent implements OnInit {
   recipeId: number;
   recipe: Recipe;
   editMode: boolean = false;
+  
   constructor(private route: ActivatedRoute,
               private recipeService: RecipeService) { }
 
@@ -21,6 +22,8 @@ export class RecipeEditComponent implements OnInit {
       this.editMode = this.recipeId!=null;
       this.recipe = this.recipeService.getRecipe(this.recipeId);
     });
+    
   }
 
+ 
 }

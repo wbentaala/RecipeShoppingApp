@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-md-12">
-    <app-shopping-edit [ingredient]="ingr"></app-shopping-edit>
+    <app-shopping-edit></app-shopping-edit>
     <hr>
     <ul class="list-group">
-      <a href="#" (click)="fillInput(ingredient)" appHighlightDirective [defaultColor]="'transparent'" [highlightColor]="'gray'" class="list-group-item" *ngFor="let ingredient of ingredients">
+      <a (click)="onEditItem(id)" appHighlightDirective [defaultColor]="'transparent'" [highlightColor]="'gray'" class="list-group-item" *ngFor="let ingredient of ingredients; let id = index">
         {{ingredient.name}} ({{ingredient.amount}})
       </a>
     </ul>

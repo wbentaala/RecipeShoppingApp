@@ -1,5 +1,6 @@
 import { Ingredient } from '../shared/ingredient.model';
-import { EventEmitter } from '@angular/core';
+import { Subject } from 'rxjs';
+import { TouchSequence } from 'selenium-webdriver';
 
 export class ShoppingListService{
     private ingredients: Ingredient[] = [
@@ -7,7 +8,8 @@ export class ShoppingListService{
         new Ingredient('Tomatoes', 4)
     ];
 
-    IngredientChanged = new EventEmitter<Ingredient[]>(); 
+    IngredientChanged = new Subject<Ingredient[]>(); 
+    ingredientEdit = new Subject<number>();
     
     public getIngredients(): Ingredient[]{
         return this.ingredients.slice();
@@ -15,11 +17,23 @@ export class ShoppingListService{
 
     public addIngredient(ingredient: Ingredient){
         this.ingredients.push(ingredient);
-        this.IngredientChanged.emit(this.ingredients);
+        this.IngredientChanged.next(this.ingredients);
       }
 
     public addIngredients(ingredients: Ingredient[]){
         this.ingredients.push(...ingredients);
-        this.IngredientChanged.emit(this.ingredients);
+        this.IngredientChanged.next(this.ingredients);
+    }
+
+    public getIngredientById(id: number): Ingredient{
+        return this.ingredients[id];
+    }
+
+    public updateIngredient(id: number, ingredient: Ingredient){
+        this.ingredients[id] = ingredient;
+    }
+
+    public DeleteIngredient(id: number){
+        this.ingredients.splice(id,1);
     }
 }
